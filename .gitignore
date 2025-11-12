@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+public/training-data/
 
 # Distribution / packaging
 .Python
