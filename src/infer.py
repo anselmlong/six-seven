@@ -96,7 +96,7 @@ def my_custom_sink(predictions: dict, video_frame: VideoFrame):
 pipeline = InferencePipeline.init_with_workflow(
     api_key=ROBOFLOW_API_KEY,
     workspace_name="fashion-vision",
-    workflow_id="detect-and-classify-2",
+    workflow_id="detect-and-classify-3",
     video_reference=0, # Path to video, device id (int, usually 0 for built in webcams), or RTSP stream url
     max_fps=30,  # Reduced from 60 for better stability
     on_prediction=my_custom_sink  # Use our custom sink function
