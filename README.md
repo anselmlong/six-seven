@@ -26,6 +26,8 @@ ROBOFLOW_API_KEY="YOUR_KEY"
 ```
 
 ## Usage
+
+### Local scripts
 Capture gesture training data:
 ```bash
 python src/capture_training_data.py
@@ -38,6 +40,31 @@ Run Roboflow workflow inference:
 ```bash
 python src/infer.py
 ```
+
+### Web demo (Roboflow-hosted model)
+This is a simple website-style demo: the browser captures webcam frames and sends them to a local FastAPI server, which forwards them to Roboflow using your API key (so the key never reaches the browser).
+
+1) Create `.env` at repo root:
+```
+ROBOFLOW_API_KEY="YOUR_KEY"
+ROBOFLOW_MODEL_ID="gesture-recognition-jemzp/5"
+```
+
+2) Install dependencies (Ubuntu / CPU):
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install fastapi uvicorn requests python-dotenv "python-multipart>=0.0.20"
+```
+
+3) Start the server:
+```bash
+uvicorn src.web_demo_server:app --reload --port 8000
+```
+
+4) Open the demo page:
+- http://localhost:8000/
 
 Exit any live window with `q`.
 
